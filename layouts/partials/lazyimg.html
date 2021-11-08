@@ -11,11 +11,7 @@
     Please ensure that image exists in ./assets directory.
 ` }}
 
-{{ $params := merge site.Params.lazyimg (dict 
-    "img" . 
-    "resizer" (default "responsive" site.Params.lazyimg.resizer) 
-    "renderer" (default "lqip" site.Params.lazyimg.renderer)
-)}}
+{{ $params := merge site.Params.lazyimg (dict "img" . "resizer" (default "responsive" site.Params.lazyimg.resizer) "renderer" (default "lqip" site.Params.lazyimg.renderer)) }}
 {{ if reflect.IsMap . }}
     {{ $userParams := dict }}
     {{/* Normalize by transforming all keys to lower-case: */}}
